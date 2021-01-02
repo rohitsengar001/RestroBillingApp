@@ -1,66 +1,91 @@
 <div class="col-11 my-5 mx-5 align-center" >
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Customer Name</span>
+    <!-- !form begin -->
+    <form [formGroup]="billReactiveForm" (ngSubmit)="onBillSubmit()">
+        <!------------ personal-details -------------------->
+        <div formGroupName="personalDetails">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Customer Name</span>
+                </div>
+                <input type="text" aria-label="CustName" class="form-control" formControlName='customerName'>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">#BillNo</span>
+                </div>
+                <input type="text" aria-label="billNo" class="form-control" formControlName='billNo'>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Date</span>
+                </div>
+                <input type="date" aria-label="date" class="form-control" formControlName='date'>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Addresss</span>
+                </div>
+                <textarea class="form-control" aria-label="Addresss" formControlName='address'></textarea>
+            </div>
         </div>
-        <input type="text" aria-label="CustName" class="form-control">
-        <div class="input-group-prepend">
-            <span class="input-group-text">#BillNo</span>
+        <!------------------ end personal details ---------------->
+        
+        <div class="dropdown-divider"></div>
+        
+            <!------------------ add item button ---------------------->
+                <!-- <div class="text-center">
+                    <button type="button" #addItemBtn class="btn btn-primary">Add Item</button>
+                </div> -->
+            <!-- end add itme button --> 
+
+        <!--add item details  -->
+        <div formGroupName="addItemDetails">
+            <div class="input-group my-2" #addItemDetails>
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Item-Details</span>
+                </div>
+                <input type="text" aria-label="item name" class="form-control" placeholder="ItemName" formControlName='itemName'>
+                <input type="text" aria-label="Quantity" class="form-control" placeholder="Quantity" formControlName='quantity'>
+                <input type="text" aria-label="price" class="form-control" placeholder="price" formControlName='price'>
+                <div class="input-group-append">
+                    <button  class="btn btn-outline-primary" (click)="addItem()"><i class="fa fa-plus-square"  aria-hidden="true"></i></button>
+                </div>
+            </div>
         </div>
-        <input type="text" aria-label="Last name" class="form-control">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Date</span>
+        <!-- end add item details -->
+        <br>
+        <!-- table start -->
+        <div formGroupName="tableContent">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Particulars</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Total</th>
+                        <th scope="col" class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <th colspan="4" class="text-right text-danger">Grand Total</th>
+                    <th colspan="2" class="text-danger">$234</th>
+                </tfoot>
+                <tbody>
+                    <!-- <ng-container *ngIf='addItems.length>0'> -->
+                        <tr *ngFor="let additem of addItems;let i=index">
+                        <td>{{i+1}}</td>
+                        <td formControlName="_dishName">{{additem.itemName}}</td>
+                        <td formControlName="_quantity">{{additem.quantity}}</td>
+                        <td formControlName='_price'>{{additem.price}}</td>
+                        <td formControlName="_totalPrice">{{additem.quantity}}*{{additem.price}}=</td>
+                        <td class="text-center"><i class="fa fa-minus-square fa-2x mx-2 btn btn-outline-danger" aria-hidden="true" (click)="removeItem(i)"></i></td>
+                    </tr>
+                    <!-- </ng-container> -->
+                </tbody>
+            </table>
+            <!-- table end -->  
+            <div class="text-center">
+                <input type="submit" value="Submit This Bill" class="btn btn-primary">
+            </div>
         </div>
-        <input type="month" aria-label="date" class="form-control">
-    </div>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Addresss</span>
-        </div>
-        <textarea class="form-control" aria-label="Addresss"></textarea>
-    </div>
-    <div class="dropdown-divider"></div>
-    <!-- add item button -->
-        <div class="text-center">
-            <button type="button" #addItemBtn class="btn btn-primary">Add Item</button>
-        </div>
-    <!-- add item  -->
-    <div class="input-group my-2" #addItemDetails>
-        <div class="input-group-prepend">
-            <span class="input-group-text">Item-Details</span>
-        </div>
-        <input type="text" aria-label="item name" class="form-control" placeholder="ItemName">
-        <input type="text" aria-label="Quantity" class="form-control" placeholder="Quantity">
-        <input type="text" aria-label="price" class="form-control" placeholder="price">
-        <div class="input-group-append">
-            <i class="fa fa-plus-square fa-3x text-primary" aria-hidden="true"></i>
-        </div>
-    </div>
-    <br>
-    <table class="table table-hover table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Particulars</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Total</th>
-                <th scope="col" class="text-center">Action</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <th colspan="4" class="text-right text-danger">Grand Total</th>
-            <th colspan="2" class="text-danger">$234</th>
-        </tfoot>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>$234</td>
-                <td class="text-center"><i class="fa fa-minus-square fa-2x mx-2 text-danger" aria-hidden="true"></i></td>
-            </tr>
-        </tbody>
-    </table>
+        
+    </form>
+    <!--! form end -->
 </div>

@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-create-bill',
@@ -6,20 +7,50 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild, } from '@angular/c
   styleUrls: ['./create-bill.component.css']
 })
 export class CreateBillComponent implements OnInit {
-  // @ViewChild('addItemBtn') divAddBtn:ElementRef;
-  //  @ViewChild('addItemDetails') addItemDetails:ElementRef;
-  constructor(private divAddBtn:ElementRef,private renderer:Renderer2) {
-    console.log(divAddBtn.nativeElement);
-    // this.renderer.nativeElement.onclick=()=>{
-    //   console.log(addItemDetails.nativeElement);
-    //   addItemDetails.nativeElement.style.display='inline-block';
-    // };
-  }
-  
-  ngOnInit(): void {
-  }
- 
+  billReactiveForm: FormGroup;
+  addItems = [];
+  constructor() { }
 
+  ngOnInit(): void {
+    //reactive form
+    this.billReactiveForm = new FormGroup({
+      'personalDetails': new FormGroup({
+        'customerName': new FormControl(),
+        'billNo': new FormControl(),
+        'date': new FormControl(),
+        'address': new FormControl()
+      }),
+      'addItemDetails': new FormGroup({
+        'itemName': new FormControl(),
+        'quantity': new FormControl(),
+        'price': new FormControl()
+      }),
+      'tableContent':new FormGroup({
+        '_dishName':new FormControl(),
+        '_quantity':new FormControl(),
+        '_price':new FormControl(),
+        '_totalPrice':new FormControl(),
+      })
+    });
   }
+
+  onBillSubmit() {
+    console.log("bill on submit");
+    
+  }
+  addItem() {
+    this.addItems.push({
+      'itemName': this.billReactiveForm.get('addItemDetails.itemName').value,
+      'quantity': this.billReactiveForm.get('addItemDetails.quantity').value,
+      'price': this.billReactiveForm.get('addItemDetails.price').value,
+    });
+    this.billReactiveForm.get('addItemDetails').reset();//reset the field of add item container
+    console.log(this.billReactiveForm.get('tableContent').value);
+  }
+  removeItem(index) {
+    this.addItems.splice(index, 1);
+  }
+
+}
 
 

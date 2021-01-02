@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
-import { Routes, RouterModule } from '@angular/router';
+// import { Routes, RouterModule } from '@angular/router';
 import { CreateBillComponent } from './create-bill/create-bill.component';
-import { BillingRoutingModule } from "./billing-routing.module";
+// import { BillingRoutingModule } from "./billing-routing.module"; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 // const routes: Routes = [
 //   {path: '', component: HomeComponent},
@@ -18,7 +19,8 @@ import { BillingRoutingModule } from "./billing-routing.module";
   ],
   imports: [
     // RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports:[HomeComponent]
 })
