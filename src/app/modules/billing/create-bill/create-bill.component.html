@@ -1,4 +1,4 @@
-<div class="col-11 my-5 mx-5 align-center" >
+<div class="col-11 my-5 mx-5 align-center">
     <!-- !form begin -->
     <form [formGroup]="billReactiveForm" (ngSubmit)="onBillSubmit()">
         <!------------ personal-details -------------------->
@@ -25,14 +25,14 @@
             </div>
         </div>
         <!------------------ end personal details ---------------->
-        
+
         <div class="dropdown-divider"></div>
-        
-            <!------------------ add item button ---------------------->
-                <!-- <div class="text-center">
+
+        <!------------------ add item button ---------------------->
+        <!-- <div class="text-center">
                     <button type="button" #addItemBtn class="btn btn-primary">Add Item</button>
                 </div> -->
-            <!-- end add itme button --> 
+        <!-- end add itme button -->
 
         <!--add item details  -->
         <div formGroupName="addItemDetails">
@@ -40,18 +40,31 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Item-Details</span>
                 </div>
-                <input type="text" aria-label="item name" class="form-control" placeholder="ItemName" formControlName='itemName'>
-                <input type="text" aria-label="Quantity" class="form-control" placeholder="Quantity" formControlName='quantity'>
-                <input type="text" aria-label="price" class="form-control" placeholder="price" formControlName='price'>
+                <!-- <input type="text" aria-label="item name" class="form-control" placeholder="ItemName"
+                    > -->
+                <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect1" formControlName='itemName' >
+                        <option selected>SELECT DISH</option>
+                        <ng-container *ngFor="let dish of dishes">
+                            <option>{{dish}}</option>
+                        </ng-container>
+                    </select>
+                </div>
+                <input type="number" aria-label="Quantity" class="form-control" placeholder="Quantity"
+                    formControlName='quantity'>
+                <input type="number" aria-label="price" class="form-control" placeholder="price"
+                    formControlName='price'>
                 <div class="input-group-append">
-                    <button  class="btn btn-outline-primary" (click)="addItem()"><i class="fa fa-plus-square"  aria-hidden="true"></i></button>
+                    <!-- <button class="btn btn-outline-primary" (click)="addItem()"><i class="fa fa-plus-square"
+                            aria-hidden="true"></i></button> -->
+                    <input type="button" value="Add Item" (click)="addItem()" class="btn btn-outline-primary" [disabled]="!billReactiveForm.get('addItemDetails').valid">
                 </div>
             </div>
         </div>
         <!-- end add item details -->
         <br>
         <!-- table start -->
-        <div formGroupName="tableContent">
+        <div>
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
@@ -65,27 +78,27 @@
                 </thead>
                 <tfoot>
                     <th colspan="4" class="text-right text-danger">Grand Total</th>
-                    <th colspan="2" class="text-danger">$234</th>
+                    <th colspan="2" class="text-danger">{{this.bill.grandTotal}}</th>
                 </tfoot>
                 <tbody>
                     <!-- <ng-container *ngIf='addItems.length>0'> -->
-                        <tr *ngFor="let additem of addItems;let i=index">
+                    <tr *ngFor="let additem of addItems;let i=index">
                         <td>{{i+1}}</td>
-                        <td formControlName="_dishName">{{additem.itemName}}</td>
-                        <td formControlName="_quantity">{{additem.quantity}}</td>
-                        <td formControlName='_price'>{{additem.price}}</td>
-                        <td formControlName="_totalPrice">{{additem.quantity}}*{{additem.price}}=</td>
-                        <td class="text-center"><i class="fa fa-minus-square fa-2x mx-2 btn btn-outline-danger" aria-hidden="true" (click)="removeItem(i)"></i></td>
+                        <td>{{additem.itemName}}</td>
+                        <td>{{additem.quantity}}</td>
+                        <td>{{additem.price}}</td>
+                        <td><b>{{additem.quantity*additem.price}}</b></td>
+                        <td class="text-center"><i class="fa fa-minus-square fa-2x mx-2 btn btn-outline-danger" aria-hidden="true"
+                                (click)="removeItem(i)"></i></td>
                     </tr>
                     <!-- </ng-container> -->
                 </tbody>
             </table>
-            <!-- table end -->  
+            <!-- table end -->
             <div class="text-center">
-                <input type="submit" value="Submit This Bill" class="btn btn-primary">
+                <input type="submit" value="Submit Bill" class="btn btn-primary" [disabled]="!billReactiveForm.get('personalDetails').valid">
             </div>
         </div>
-        
     </form>
     <!--! form end -->
 </div>

@@ -1,5 +1,7 @@
+// import { ClassField } from '@angular/compiler';
+// import { getTranslationDeclStmts } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-bill',
@@ -9,47 +11,74 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class CreateBillComponent implements OnInit {
   billReactiveForm: FormGroup;
   addItems = [];
+  dishes = ['MATAR PANEER', 'SAHI PANEER', 'VEG-VIRYANI', 'SAHI KABAB', 'MATAR KULCHA', 'BURGER CHEESE', 'VEG MAGGI', 'PANEER TIKKA', 'BUTTER NAAN'];
+  bill = {
+    'customerName': "",
+    'billNo': "",
+    'date': "",
+    'address': "",
+    'itemDetails': this.addItems,
+    'grandTotal': 0
+  }
   constructor() { }
 
   ngOnInit(): void {
     //reactive form
     this.billReactiveForm = new FormGroup({
       'personalDetails': new FormGroup({
-        'customerName': new FormControl(),
-        'billNo': new FormControl(),
-        'date': new FormControl(),
-        'address': new FormControl()
+        'customerName': new FormControl(null, [Validators.required, Validators.maxLength(25), Validators.pattern('^[a-zA-Z ]*$')]),
+        'billNo': new FormControl({ value: null, disabled: true }, [Validators.nullValidator]),
+        'date': new FormControl(null, [Validators.required]),
+        'address': new FormControl(null, [Validators.required, Validators.maxLength(35)])
       }),
       'addItemDetails': new FormGroup({
-        'itemName': new FormControl(),
-        'quantity': new FormControl(),
-        'price': new FormControl()
+        'itemName': new FormControl(null),
+        'quantity': new FormControl(null, [Validators.required, Validators.min(1), Validators.max(10)]),
+        'price': new FormControl(null, [Validators.required, Validators.min(1)])
       }),
-      'tableContent':new FormGroup({
-        '_dishName':new FormControl(),
-        '_quantity':new FormControl(),
-        '_price':new FormControl(),
-        '_totalPrice':new FormControl(),
-      })
     });
   }
+  // ngDoCheck(){
+  //   console.log('ngdocheck is running');
+  //   this.addItems.forEach((total)=>{
+
+  //     console.warn("total")
+  //   });
+  // }
 
   onBillSubmit() {
-    console.log("bill on submit");
-    
+    //?fetch customerName ,billno,date and address 
+    //also set the bill object and pass further for api calling 
+    //for posting data at api
+    console.log(this.billReactiveForm);
+    this.bill.customerName = this.billReactiveForm.get('personalDetails.customerName').value;
+    this.bill.date = this.billReactiveForm.get('personalDetails.date').value;
+    this.bill.address = this.billReactiveForm.get('personalDetails.address').value;
+    // this.bill.customerName=this.billReactiveForm.get('personalDetails.customerName').value;
+    console.log(this.bill);
+
   }
   addItem() {
+    let intialTotal = 0
     this.addItems.push({
       'itemName': this.billReactiveForm.get('addItemDetails.itemName').value,
       'quantity': this.billReactiveForm.get('addItemDetails.quantity').value,
       'price': this.billReactiveForm.get('addItemDetails.price').value,
     });
+    // console.log(this.addItems);
+    // console.log(this.billReactiveForm);
+    this.addItems.forEach((total) => {
+      intialTotal = (total.price) * (total.quantity)
+    });
+    // console.log(intialTotal)
+    this.bill.grandTotal += intialTotal
+    //  console.log("grandtotal:",this.bill.grandTotal);
     this.billReactiveForm.get('addItemDetails').reset();//reset the field of add item container
-    console.log(this.billReactiveForm.get('tableContent').value);
   }
   removeItem(index) {
     this.addItems.splice(index, 1);
   }
+
 
 }
 

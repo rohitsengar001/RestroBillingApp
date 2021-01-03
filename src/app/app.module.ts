@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule  } from "./modules/layout/layout.module";
 import { BillingModule } from "../app/modules/billing/billing.module";
+import { BillingService } from './services/billing.service';
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 @NgModule({
@@ -19,7 +20,7 @@ import { BillingModule } from "../app/modules/billing/billing.module";
     // BillingModule
     
   ],
-  providers: [],
+  providers: [BillingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
