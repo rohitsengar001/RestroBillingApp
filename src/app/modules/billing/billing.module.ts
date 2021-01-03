@@ -18,9 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CreateBillComponent
   ],
   imports: [
-    // RouterModule.forChild(routes),
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports:[HomeComponent]
 })

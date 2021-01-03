@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule  } from "./modules/layout/layout.module";
 import { BillingModule } from "../app/modules/billing/billing.module";
 import { BillingService } from './services/billing.service';
+import {  HttpClientModule } from '@angular/common/http';
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 @NgModule({
@@ -16,7 +17,8 @@ import { BillingService } from './services/billing.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // LayoutModule,
+    HttpClientModule,
+      // LayoutModule,
     // BillingModule
     
   ],

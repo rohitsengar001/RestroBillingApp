@@ -13,9 +13,68 @@
       "postId": 1
     }
   ],
-"bill":[
-        
-    ],
+  "bill": [
+    {
+      "customerName": "ramesh sharma",
+      "billNo": "",
+      "date": "2021-01-03",
+      "address": "KAURARA ROAD SIRSAGANJ",
+      "itemDetails": [
+        {
+          "itemName": "SAHI PANEER",
+          "quantity": 2,
+          "price": 230
+        }
+      ],
+      "grandTotal": 460,
+      "id": 1
+    },
+    {
+      "customerName": "RAKESH KANT SHARMA",
+      "billNo": "",
+      "date": "2021-01-03",
+      "address": "KAURARA ROAD SIRSAGANJ",
+      "itemDetails": [
+        {
+          "itemName": "MATAR PANEER",
+          "quantity": 1,
+          "price": 250
+        },
+        {
+          "itemName": "VEG-VIRYANI",
+          "quantity": 2,
+          "price": 350
+        },
+        {
+          "itemName": "VEG MAGGI",
+          "quantity": 4,
+          "price": 40
+        }
+      ],
+      "grandTotal": 1110,
+      "id": 2
+    },
+    {
+      "customerName": "ROHIT",
+      "billNo": "",
+      "date": "2021-01-03",
+      "address": "KAURARA ROAD",
+      "itemDetails": [
+        {
+          "itemName": "MATAR PANEER",
+          "quantity": 1,
+          "price": 230
+        },
+        {
+          "itemName": "SAHI KABAB",
+          "quantity": 1,
+          "price": 346
+        }
+      ],
+      "grandTotal": 576,
+      "id": 3
+    }
+  ],
   "profile": {
     "name": "typicode"
   }

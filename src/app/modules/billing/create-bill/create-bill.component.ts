@@ -1,7 +1,6 @@
-// import { ClassField } from '@angular/compiler';
-// import { getTranslationDeclStmts } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BillingService } from 'src/app/services/billing.service';
 
 @Component({
   selector: 'app-create-bill',
@@ -20,7 +19,7 @@ export class CreateBillComponent implements OnInit {
     'itemDetails': this.addItems,
     'grandTotal': 0
   }
-  constructor() { }
+  constructor(private billingService:BillingService) { }
 
   ngOnInit(): void {
     //reactive form
@@ -50,12 +49,15 @@ export class CreateBillComponent implements OnInit {
     //?fetch customerName ,billno,date and address 
     //also set the bill object and pass further for api calling 
     //for posting data at api
-    console.log(this.billReactiveForm);
+    // console.log(this.billReactiveForm);
     this.bill.customerName = this.billReactiveForm.get('personalDetails.customerName').value;
     this.bill.date = this.billReactiveForm.get('personalDetails.date').value;
     this.bill.address = this.billReactiveForm.get('personalDetails.address').value;
     // this.bill.customerName=this.billReactiveForm.get('personalDetails.customerName').value;
-    console.log(this.bill);
+    // console.log(this.bill);
+    alert('Are you sure to submit!')
+    this.billingService.postBill(this.bill).subscribe((info)=>console.log(info));
+    this.billReactiveForm.reset();
 
   }
   addItem() {
