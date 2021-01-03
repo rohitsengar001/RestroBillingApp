@@ -13,7 +13,7 @@ export class BillingService {
     return this.httpClient.get(`${environment.baseUrl}/bill`)
   }
   postBill(data) {
-    console.log(data)
+    // console.log(data)
     return this.httpClient.post<any>(`${environment.baseUrl}/bill`, data)
   }
   editBill(data) {

@@ -1,4 +1,10 @@
 <div class="col-11 my-5 mx-5 align-center">
+    <div class="alert alert-success" role="alert" *ngIf="successFlag">
+        A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+      </div>
+      <!-- <div class="alert alert-danger" role="alert" *ngIf="!successFlag && billReactiveForm.getError()">
+        A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+      </div> -->
     <!-- !form begin -->
     <form [formGroup]="billReactiveForm" (ngSubmit)="onBillSubmit()">
         <!------------ personal-details -------------------->
@@ -78,7 +84,7 @@
                 </thead>
                 <tfoot>
                     <th colspan="4" class="text-right text-danger">Grand Total</th>
-                    <th colspan="2" class="text-danger">{{this.bill.grandTotal}}</th>
+                    <th colspan="2" class="text-danger"><i class="fas fa-rupee-sign"></i>{{this.bill.grandTotal}}</th>
                 </tfoot>
                 <tbody>
                     <!-- <ng-container *ngIf='addItems.length>0'> -->

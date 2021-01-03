@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateBillComponent } from './create-bill/create-bill.component';
 // import { BillingRoutingModule } from "./billing-routing.module"; 
 import { ReactiveFormsModule } from '@angular/forms';
+import { BillingpdfComponent } from './billingpdf/billingpdf.component';
 
 // const routes: Routes = [
 //   {path: '', component: HomeComponent},
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HomeComponent,
-    CreateBillComponent
+    CreateBillComponent,
+    BillingpdfComponent
   ],
   imports: [
     CommonModule,

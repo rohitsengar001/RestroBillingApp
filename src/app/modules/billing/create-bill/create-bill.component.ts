@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BillingService } from 'src/app/services/billing.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class CreateBillComponent implements OnInit {
     'itemDetails': this.addItems,
     'grandTotal': 0
   }
-  constructor(private billingService:BillingService) { }
+  successFlag:boolean=false;
+  constructor(private billingService:BillingService,private router:Router) { }
 
   ngOnInit(): void {
     //reactive form
@@ -56,10 +58,19 @@ export class CreateBillComponent implements OnInit {
     // this.bill.customerName=this.billReactiveForm.get('personalDetails.customerName').value;
     // console.log(this.bill);
     alert('Are you sure to submit!')
-    this.billingService.postBill(this.bill).subscribe((info)=>console.log(info));
+    this.billingService.postBill(this.bill).subscribe((info)=>{
+      this.successFlag=true;
+      // console.log(info);
+    });
     this.billReactiveForm.reset();
-
+    setTimeout(() => {
+      setTimeout(() => {
+        this.router.navigate(['/layout/bill/'])
+      });
+    }, 3000);
   }
+
+  
   addItem() {
     let intialTotal = 0
     this.addItems.push({
