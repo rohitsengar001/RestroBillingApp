@@ -7,17 +7,21 @@ import { LayoutModule  } from "./modules/layout/layout.module";
 import { BillingModule } from "../app/modules/billing/billing.module";
 import { BillingService } from './services/billing.service';
 import {  HttpClientModule } from '@angular/common/http';
+import { LineBreakPipePipe } from './line-break-pipe.pipe';
+import {MatTableModule} from '@angular/material/table';
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LineBreakPipePipe,
     // HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatTableModule
       // LayoutModule,
     // BillingModule
     

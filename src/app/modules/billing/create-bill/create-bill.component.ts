@@ -10,7 +10,7 @@ import { BillingService } from 'src/app/services/billing.service';
 })
 export class CreateBillComponent implements OnInit {
   billReactiveForm: FormGroup;
-  addItems = [];
+  addItems = []; //?itemName:"",quantity:'',price:''
   dishes = ['MATAR PANEER', 'SAHI PANEER', 'VEG-VIRYANI', 'SAHI KABAB', 'MATAR KULCHA', 'BURGER CHEESE', 'VEG MAGGI', 'PANEER TIKKA', 'BUTTER NAAN'];
   bill = {
     'customerName': "",
@@ -39,14 +39,6 @@ export class CreateBillComponent implements OnInit {
       }),
     });
   }
-  // ngDoCheck(){
-  //   console.log('ngdocheck is running');
-  //   this.addItems.forEach((total)=>{
-
-  //     console.warn("total")
-  //   });
-  // }
-
   onBillSubmit() {
     //?fetch customerName ,billno,date and address 
     //also set the bill object and pass further for api calling 
@@ -65,7 +57,7 @@ export class CreateBillComponent implements OnInit {
     this.billReactiveForm.reset();
     setTimeout(() => {
       setTimeout(() => {
-        this.router.navigate(['/layout/bill/'])
+        this.router.navigate(['/billingpdf',{billing:JSON.stringify(this.bill)}])
       });
     }, 3000);
   }

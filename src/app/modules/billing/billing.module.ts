@@ -6,6 +6,7 @@ import { CreateBillComponent } from './create-bill/create-bill.component';
 // import { BillingRoutingModule } from "./billing-routing.module"; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BillingpdfComponent } from './billingpdf/billingpdf.component';
+import { ViewbillComponent } from './viewbill/viewbill.component';
 
 // const routes: Routes = [
 //   {path: '', component: HomeComponent},
@@ -17,7 +18,8 @@ import { BillingpdfComponent } from './billingpdf/billingpdf.component';
   declarations: [
     HomeComponent,
     CreateBillComponent,
-    BillingpdfComponent
+    BillingpdfComponent,
+    ViewbillComponent
   ],
   imports: [
     CommonModule,
