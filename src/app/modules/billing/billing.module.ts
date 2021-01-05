@@ -7,6 +7,11 @@ import { CreateBillComponent } from './create-bill/create-bill.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BillingpdfComponent } from './billingpdf/billingpdf.component';
 import { ViewbillComponent } from './viewbill/viewbill.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { BillingRoutingModule } from './billing-routing.module';
+// import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 // const routes: Routes = [
 //   {path: '', component: HomeComponent},
@@ -24,6 +29,10 @@ import { ViewbillComponent } from './viewbill/viewbill.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatSortModule,
+    BillingRoutingModule
+    // MatPaginatorModule
   ],
   exports:[HomeComponent]
 })

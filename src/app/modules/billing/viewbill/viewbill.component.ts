@@ -1,4 +1,3 @@
-import { OnInit } from '@angular/core';
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
@@ -28,15 +27,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './viewbill.component.html',
   styleUrls: ['./viewbill.component.css']
 })
-export class ViewbillComponent implements OnInit {
+export class ViewbillComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort) sort: MatSort;
-  constructor() { }
 
-  ngOnInit(): void {
-  }
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }

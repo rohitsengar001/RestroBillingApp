@@ -10,7 +10,7 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: '/layout/bill/', pathMatch: 'full' },
             {
-                path: 'bill', loadChildren: () => import('../billing/billing-routing.module').then(m => m.BillingRoutingModule)
+                path: 'bill', loadChildren: () => import('../billing/billing.module').then(m => m.BillingModule)
             },
             // {path:'viewallbill',component:''}
         ]
