@@ -3,36 +3,30 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 // import { Routes, RouterModule } from '@angular/router';
 import { CreateBillComponent } from './create-bill/create-bill.component';
-// import { BillingRoutingModule } from "./billing-routing.module"; 
+import { BillingRoutingModule } from "./billing-routing.module"; 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BillingpdfComponent } from './billingpdf/billingpdf.component';
 import { ViewbillComponent } from './viewbill/viewbill.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { BillingRoutingModule } from './billing-routing.module';
-// import { MatPaginatorModule } from '@angular/material/paginator';
-
-
-// const routes: Routes = [
-//   {path: '', component: HomeComponent},
-//   {path:'createbill',component:CreateBillComponent}
-// ]
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ManageBillComponent } from './manage-bill/manage-bill.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CreateBillComponent,
     BillingpdfComponent,
-    ViewbillComponent
+    ViewbillComponent,
+    ManageBillComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MatTableModule,
     MatSortModule,
-    BillingRoutingModule
-    // MatPaginatorModule
+    BillingRoutingModule,
+    MatPaginatorModule
   ],
   exports:[HomeComponent]
 })
