@@ -34,24 +34,29 @@ export class ViewbillComponent implements OnInit,AfterViewInit {
   // dataSource = new MatTableDataSource(ELEMENT_DATA);
   dataSource
   user
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  // @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort,{static:false}) sort: MatSort;
+  @ViewChild(MatPaginator,{static:false}) paginator: MatPaginator;
   constructor(private billingService:BillingService){}
   ngOnInit(){
     this.getAllBill()
   }
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
   }
   getAllBill(){
-    this.billingService.getAllBill().subscribe((info:PeriodicElement[])=>{
+    this.billingService.getAllBill().subscribe((info:any)=>{
       this.user=info
       
 
       this.dataSource = new MatTableDataSource(info);
       // this.dataSource = info;
+      this.dataSource.sort = this.sort
+      this.dataSource.paginator = this.paginator
       console.log(this.dataSource);
     })
+    // this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
   }
 }

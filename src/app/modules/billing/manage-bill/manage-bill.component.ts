@@ -1,23 +1,102 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { BillingService } from 'src/app/services/billing.service';
 
 @Component({
   selector: 'app-manage-bill',
   templateUrl: './manage-bill.component.html',
-  styleUrls: ['./manage-bill.component.css']
+  styleUrls: ['./manage-bill.component.css'],
 })
-export class ManageBillComponent implements OnInit {
-  billObj
-  constructor(private billingService:BillingService) { }
+export class ManageBillComponent implements OnInit, DoCheck {
+  // productItemList=[]
+  dishes = [
+    'MATAR PANEER',
+    'SAHI PANEER',
+    'VEG-VIRYANI',
+    'SAHI KABAB',
+    'MATAR KULCHA',
+    'BURGER CHEESE',
+    'VEG MAGGI',
+    'PANEER TIKKA',
+    'BUTTER NAAN',
+  ];
+  billObj;
+  grandTotal=0
+  itemListArray = [] //itemDetails of all objects
+  billing = {
+    'customerName': "",
+    'billNo': "",
+    'date': "",
+    'address': "",
+    'itemDetails': [],
+    'grandTotal': 0
+  }
+  addItemDetails={
+    'itemName':'',
+    'price':'',
+    'quantity':''
+  }
+  constructor(private billingService: BillingService) {}
 
   ngOnInit(): void {
-    this.getAllBilling()
-  }
-  getAllBilling(){
-    this.billingService.getAllBill().subscribe((info)=>{
-      this.billObj=info
-      console.log(info);
-    })
+    this.getAllBilling();
   }
 
+  ngDoCheck() {
+    // console.log(data)
+  }
+  getAllBilling() {
+    this.billingService.getAllBill().subscribe((info) => {
+      this.billObj = info;
+      this.billObj.forEach(obj => {
+        this.itemListArray.push(obj.itemDetails)
+      });
+      // for(let obj of this.billObj) {
+      //   this.itemList.push(obj.itemDetails)
+      // }
+      // console.log(this.itemListArray[0][0].itemName);
+      console.log(this.billObj);
+    });
+  }
+setTotal(total){
+  this.grandTotal=total
+  console.log("setgrandtotal",this.grandTotal);
+}
+//! add item into the list
+  addItem(data,index,form){
+    console.log(this.addItemDetails)
+    this.addItemDetails.itemName=data.itemNameField
+    this.addItemDetails.price=data.priceField
+    this.addItemDetails.quantity=data.quantityField
+    console.log(this.addItemDetails)
+
+    this.itemListArray[index].push(this.addItemDetails)
+    console.log(this.itemListArray);
+    this.grandTotal=0
+    this.itemListArray[index].forEach(element => {
+      this.grandTotal+=element.price * element.quantity
+      console.log(element.price * element.quantity);
+    });
+    // console.log(form.form.controls.address.value);
+    console.log(this.grandTotal);
+    console.log(this.itemListArray[index]);
+    // console.log(data);
+  }
+  //!to delete items into the bill
+  deleteItem(){
+
+  }
+  updateForm(data,id){ //?data:<parameterlist> custName,date and address
+    //set form data into bill object
+    this.billing.customerName=data.custName;
+    this.billing.date=data.date;
+    this.billing.address=data.address;
+    this.billing.grandTotal=data.grandTotal
+    this.billing.itemDetails=this.itemListArray[id]
+    // this.billingService.editBill(this.billing,id+1).subscribe(info=>{
+    //   console.log('service is calling');
+    // })
+    let closebtn=document.getElementById('close-btn-'+id)
+    closebtn.click()
+    console.log(data);
+  }
 }

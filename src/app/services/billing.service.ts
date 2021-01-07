@@ -16,10 +16,9 @@ export class BillingService {
     // console.log(data)
     return this.httpClient.post<any>(`${environment.baseUrl}/bill`, data)
   }
-  editBill(data) {
-    console.log(data.userId);
-    let userId = data.userId;
-    return this.httpClient.put(`${environment.baseUrl}/bill/` + userId, data)
+  editBill(data,id) {
+    console.log(id);
+    return this.httpClient.put(`${environment.baseUrl}/bill/`+id, data)
   }
   deleteBill(dataId){
     return this.httpClient.delete(`${environment.baseUrl}/bill/`+dataId)

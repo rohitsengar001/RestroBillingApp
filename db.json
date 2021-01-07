@@ -15,18 +15,9 @@
   ],
   "bill": [
     {
-      "customerName": "ramesh sharma",
+      "customerName": "dsfsd",
       "billNo": "",
-      "date": "2021-01-03",
-      "address": "KAURARA ROAD SIRSAGANJ",
-      "itemDetails": [
-        {
-          "itemName": "SAHI PANEER",
-          "quantity": 2,
-          "price": 230
-        }
-      ],
-      "grandTotal": 460,
+      "address": "sdfsdf",
       "id": 1
     },
     {
@@ -69,6 +60,11 @@
           "itemName": "SAHI KABAB",
           "quantity": 1,
           "price": 346
+        },
+        {
+          "itemName": "VEG-VIRYANI",
+          "price": 70,
+          "quantity": 1
         }
       ],
       "grandTotal": 576,
@@ -269,9 +265,14 @@
           "itemName": "SAHI PANEER",
           "quantity": 1,
           "price": 233
+        },
+        {
+          "itemName": "MATAR PANEER",
+          "price": 100,
+          "quantity": 1
         }
       ],
-      "grandTotal": 233,
+      "grandTotal": 333,
       "id": 16
     },
     {
@@ -459,7 +460,13 @@
       "billNo": "",
       "date": "2021-01-05",
       "address": "sdadas",
-      "itemDetails": [],
+      "itemDetails": [
+        {
+          "itemName": "SAHI PANEER",
+          "price": 234,
+          "quantity": 1
+        }
+      ],
       "grandTotal": 0,
       "id": 29
     },
@@ -570,6 +577,26 @@
       ],
       "grandTotal": 234,
       "id": 39
+    },
+    {
+      "customerName": "NAMAN GUPTA",
+      "billNo": "",
+      "date": "2021-01-07",
+      "address": "MIRZAPUR",
+      "itemDetails": [
+        {
+          "itemName": "BURGER CHEESE",
+          "quantity": 1,
+          "price": 99
+        },
+        {
+          "itemName": "VEG-VIRYANI",
+          "quantity": 1,
+          "price": 230
+        }
+      ],
+      "grandTotal": 329,
+      "id": 40
     }
   ],
   "profile": {

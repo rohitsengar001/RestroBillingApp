@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 // import { Routes, RouterModule } from '@angular/router';
 import { CreateBillComponent } from './create-bill/create-bill.component';
 import { BillingRoutingModule } from "./billing-routing.module"; 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BillingpdfComponent } from './billingpdf/billingpdf.component';
 import { ViewbillComponent } from './viewbill/viewbill.component';
 import { MatTableModule } from '@angular/material/table';
@@ -26,7 +26,8 @@ import { ManageBillComponent } from './manage-bill/manage-bill.component';
     MatTableModule,
     MatSortModule,
     BillingRoutingModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
   ],
   exports:[HomeComponent]
 })
