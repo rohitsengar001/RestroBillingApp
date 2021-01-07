@@ -30,11 +30,7 @@ export class ManageBillComponent implements OnInit, DoCheck {
     'itemDetails': [],
     'grandTotal': 0
   }
-  addItemDetails={
-    'itemName':'',
-    'price':'',
-    'quantity':''
-  }
+  
   constructor(private billingService: BillingService) {}
 
   ngOnInit(): void {
@@ -63,13 +59,19 @@ setTotal(total){
 }
 //! add item into the list
   addItem(data,index,form){
-    console.log(this.addItemDetails)
-    this.addItemDetails.itemName=data.itemNameField
-    this.addItemDetails.price=data.priceField
-    this.addItemDetails.quantity=data.quantityField
-    console.log(this.addItemDetails)
+    let addItemDetails = {
+      itemName: data.itemNameField,
+      price:data.priceField,
+      quantity:data.quantityField
+    }
+    console.log(addItemDetails)
+    //?itemNameFile,priceFiled,quantity
+    // this.addItemDetails.itemName=data.itemNameField
+    // this.addItemDetails.price=data.priceField
+    // this.addItemDetails.quantity=data.quantityField
+    console.log(addItemDetails)
 
-    this.itemListArray[index].push(this.addItemDetails)
+    this.itemListArray[index].push(addItemDetails)
     console.log(this.itemListArray);
     this.grandTotal=0
     this.itemListArray[index].forEach(element => {
@@ -92,9 +94,9 @@ setTotal(total){
     this.billing.address=data.address;
     this.billing.grandTotal=data.grandTotal
     this.billing.itemDetails=this.itemListArray[id]
-    // this.billingService.editBill(this.billing,id+1).subscribe(info=>{
-    //   console.log('service is calling');
-    // })
+    this.billingService.editBill(this.billing,id+1).subscribe(info=>{
+      console.log('service is calling');
+    })
     let closebtn=document.getElementById('close-btn-'+id)
     closebtn.click()
     console.log(data);

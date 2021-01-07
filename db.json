@@ -65,9 +65,14 @@
           "itemName": "VEG-VIRYANI",
           "price": 70,
           "quantity": 1
+        },
+        {
+          "itemName": "VEG MAGGI",
+          "price": 90,
+          "quantity": 1
         }
       ],
-      "grandTotal": 576,
+      "grandTotal": 736,
       "id": 3
     },
     {
