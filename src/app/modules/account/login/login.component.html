@@ -1,26 +1,27 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand text-light" ><b>Restro<span class="text-primary">Billing</span></b></a>
+            <a class="navbar-brand text-light"><b>Restro<span class="text-primary">Billing</span></b></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#">Login</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link text-light" href="#">Register</a>
                     </li>
                 </ul>
-    
+
             </div>
         </div>
     </nav>
-    
+
     <main class="login-form p-4">
         <div class="cotainer">
             <div class="row justify-content-center">
@@ -28,23 +29,26 @@
                     <div class="card">
                         <div class="card-header">Register</div>
                         <div class="card-body">
-                            <form action="" method="">
+                            <form [formGroup]= "loginReactiveForm" (ngSubmit)="onSubmit()">
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail
                                         Address</label>
                                     <div class="col-md-6">
                                         <input type="text" id="email_address" class="form-control" name="email-address"
-                                            required autofocus>
+                                            autofocus formControlName="email">
+                                            <small class="text-danger" *ngIf="!this.loginReactiveForm.get('email').valid && this.loginReactiveForm.touched">email id is incorrect!</small>
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                     <div class="col-md-6">
-                                        <input type="password" id="password" class="form-control" name="password" required>
+                                        <input type="password" id="password" class="form-control" name="password"
+                                            formControlName="password">
+                                            <small class="text-danger" *ngIf="!this.loginReactiveForm.get('password').valid && this.loginReactiveForm.touched">password is incorrect!</small>
                                     </div>
                                 </div>
-    
+
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-4">
                                         <div class="checkbox">
@@ -54,10 +58,10 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        Register
+                                        Login
                                     </button>
                                     <a href="#" class="btn btn-link">
                                         Forgot Your Password?
@@ -69,6 +73,6 @@
                 </div>
             </div>
         </div>
-    
+
     </main>
 </body>

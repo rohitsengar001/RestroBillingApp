@@ -10,6 +10,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { LineBreakPipePipe } from './line-break-pipe.pipe';
 // import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 @NgModule({
@@ -20,12 +21,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    // MatTableModule,
     BrowserAnimationsModule
-      // LayoutModule,
-    // BillingModule
     
   ],
   providers: [BillingService],
