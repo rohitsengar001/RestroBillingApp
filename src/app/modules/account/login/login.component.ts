@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
  loginReactiveForm:FormGroup
-  constructor() { }
+ result:boolean
+  constructor(private loginservice:LoginService,private router:Router) { }
 
   ngOnInit(): void {
     this.loginReactiveForm=new FormGroup({
@@ -18,5 +21,10 @@ export class LoginComponent implements OnInit {
   }
  onSubmit(){
    console.log(this.loginReactiveForm);
+   this.result=this.loginservice.checkUser(this.loginReactiveForm)
+   if(this.result==true)
+      this.router.navigate(['../account/dashboard'])
+   else
+     alert("user name and password are incorrect!!")   
  }
 }
