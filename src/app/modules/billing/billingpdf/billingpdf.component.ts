@@ -19,10 +19,13 @@ export class BillingpdfComponent implements OnInit {
     this.originalObj=this.route.snapshot.paramMap.get('billing')
     this.billObj=JSON.parse(this.originalObj)
     this.addressCustArray=this.billObj.address.split('\n');
-    console.log(this.billObj);
-    console.log(this.billObj.address.split('\n')[0]);
+    // console.log(this.billObj);
+    // console.log(this.billObj.address.split('\n')[0]);
   }
 
+  printPdf(){
+    window.print()
+  }
 
 
 }

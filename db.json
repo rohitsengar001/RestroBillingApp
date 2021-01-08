@@ -28,6 +28,51 @@
       ],
       "grandTotal": 250,
       "id": 1
+    },
+    {
+      "customerName": "himanshu sharma",
+      "billNo": "",
+      "date": "2021-01-08",
+      "address": "bijnor",
+      "itemDetails": [
+        {
+          "itemName": "SAHI PANEER",
+          "quantity": 1,
+          "price": 250
+        },
+        {
+          "itemName": "VEG-VIRYANI",
+          "quantity": 2,
+          "price": 45
+        }
+      ],
+      "grandTotal": 340,
+      "id": 2
+    },
+    {
+      "customerName": "bhanu sengar",
+      "billNo": "",
+      "date": "2021-01-02",
+      "address": "kaurara road sirsaganj",
+      "itemDetails": [
+        {
+          "itemName": "SAHI PANEER",
+          "quantity": 1,
+          "price": 237
+        },
+        {
+          "itemName": "BURGER CHEESE",
+          "quantity": 1,
+          "price": 99
+        },
+        {
+          "itemName": "VEG MAGGI",
+          "quantity": 2,
+          "price": 45
+        }
+      ],
+      "grandTotal": 426,
+      "id": 3
     }
   ],
   "profile": {
