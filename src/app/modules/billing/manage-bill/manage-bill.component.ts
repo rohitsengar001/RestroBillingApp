@@ -1,4 +1,5 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 import { BillingService } from 'src/app/services/billing.service';
 
 @Component({
@@ -31,7 +32,7 @@ export class ManageBillComponent implements OnInit, DoCheck {
     'grandTotal': 0
   }
   
-  constructor(private billingService: BillingService) {}
+  constructor(private billingService: BillingService,private router:Router) {}
 
   ngOnInit(): void {
     this.getAllBilling();
@@ -118,5 +119,8 @@ setTotal(total){
     let closebtn=document.getElementById('close-btn-'+index)
     closebtn.click()
     // console.log(data);
+  }
+  onBillView(data){
+    this.router.navigate(['/billingpdf',{billing:JSON.stringify(data)}])
   }
 }

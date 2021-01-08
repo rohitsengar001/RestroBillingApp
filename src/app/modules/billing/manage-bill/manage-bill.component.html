@@ -17,7 +17,10 @@
             <td><i class="fas fa-rupee-sign    "></i>{{bill.grandTotal + bill.grandTotal *18 /100 |number}}</td>
             <td><i class="fas fa-edit fa-2x btn btn-warning " data-toggle="modal" (click)='setTotal(bill.grandTotal)'
                     [attr.data-target]="'#exampleModal-' + i"></i> &nbsp;<i
-                    class="fas fa-trash-alt fa-2x btn btn-danger" data-toggle="modal" [attr.data-target]="'#deleteModal-' + i"></i></td>
+                    class="fas fa-trash-alt fa-2x btn btn-danger" data-toggle="modal"
+                    [attr.data-target]="'#deleteModal-' + i"></i>
+                    &nbsp;<i class="fas fa-eye fa-2x btn btn-primary" (click)="onBillView(bill)"></i>
+            </td>
 
         </tr>
         <!-- delete modal -->
@@ -34,7 +37,8 @@
                         <p>Are you sure want to delete this bill!!!</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id='delete-close-{{i}}'data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" id='delete-close-{{i}}'
+                            data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-danger" (click)="deleteBill(i,bill.id)">Delete</button>
                     </div>
                 </div>
