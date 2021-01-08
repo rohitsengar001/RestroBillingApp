@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { truncate } from 'fs';
+import { Router } from '@angular/router';
+// import { truncate } from 'fs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  constructor(private router:Router) { }
   checkUser(form):boolean{
     if(form.get('email').value=='rohitsengar001@gmail.com' && form.get('password').value=='rohit@321')
     {
@@ -16,4 +17,9 @@ export class LoginService {
     else
       return false  
   }
+  logOutUser(){
+    localStorage.clear()
+    this.router.navigate(['account'])
+  }
+
 }
