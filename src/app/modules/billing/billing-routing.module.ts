@@ -10,7 +10,7 @@ import { ManageBillComponent } from './manage-bill/manage-bill.component';
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/layout/bill/home', pathMatch: 'full'
+        redirectTo: 'home', pathMatch: 'full'
     },
     {path: 'home', component: HomeComponent},
     {path:'createbill',component:CreateBillComponent},

@@ -4,9 +4,10 @@ import { BillingpdfComponent } from './modules/billing/billingpdf/billingpdf.com
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/layout/bill/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/layout/login', pathMatch: 'full'},
   {path: 'layout', loadChildren: () => import('./modules/layout/layout-routing.module').then(m => m.LayoutRoutingModule)},
-  {path:"billingpdf",component:BillingpdfComponent}
+  {path:"billingpdf",component:BillingpdfComponent},
+  // {path:'layout/dashboard',redirectTo:}
 ];
 
 @NgModule({

@@ -10,6 +10,8 @@ import {  HttpClientModule } from '@angular/common/http';
 import { LineBreakPipePipe } from './line-break-pipe.pipe';
 // import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginGuard } from './guards/login.guard';
+import { LoginService } from './services/login.service';
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 @NgModule({
@@ -28,7 +30,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // BillingModule
     
   ],
-  providers: [BillingService],
+  providers: [BillingService,LoginGuard,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

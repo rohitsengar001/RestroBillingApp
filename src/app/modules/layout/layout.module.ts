@@ -6,16 +6,19 @@ import { BillingModule } from '../billing/billing.module';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidenavbarComponent, LayoutComponent],
+  declarations: [HeaderComponent, FooterComponent, SidenavbarComponent, LayoutComponent, LoginComponent],
   imports: [
     CommonModule,
     BillingModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    ReactiveFormsModule
   ],
   // exports:[HeaderComponent,FooterComponent,SidenavbarComponent,LayoutComponent]
 })
