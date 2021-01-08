@@ -38,7 +38,7 @@ export class ManageBillComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    // console.log(data)
+    // this.getAllBilling()
   }
   getAllBilling() {
     this.billingService.getAllBill().subscribe((info) => {
@@ -46,16 +46,17 @@ export class ManageBillComponent implements OnInit, DoCheck {
       this.billObj.forEach(obj => {
         this.itemListArray.push(obj.itemDetails)
       });
+      
       // for(let obj of this.billObj) {
       //   this.itemList.push(obj.itemDetails)
       // }
       // console.log(this.itemListArray[0][0].itemName);
-      console.log(this.billObj);
+      // console.log(this.billObj);
     });
   }
 setTotal(total){
   this.grandTotal=total
-  console.log("setgrandtotal",this.grandTotal);
+  // console.log("setgrandtotal",this.grandTotal);
 }
 //! add item into the list
   addItem(data,index,form){
@@ -64,41 +65,58 @@ setTotal(total){
       price:data.priceField,
       quantity:data.quantityField
     }
-    console.log(addItemDetails)
+    // console.log(addItemDetails)
     //?itemNameFile,priceFiled,quantity
     // this.addItemDetails.itemName=data.itemNameField
     // this.addItemDetails.price=data.priceField
     // this.addItemDetails.quantity=data.quantityField
-    console.log(addItemDetails)
+    // console.log(addItemDetails)
 
     this.itemListArray[index].push(addItemDetails)
-    console.log(this.itemListArray);
+    // console.log(this.itemListArray);
     this.grandTotal=0
     this.itemListArray[index].forEach(element => {
       this.grandTotal+=element.price * element.quantity
-      console.log(element.price * element.quantity);
+      // console.log(element.price * element.quantity);
     });
     // console.log(form.form.controls.address.value);
-    console.log(this.grandTotal);
-    console.log(this.itemListArray[index]);
+    // console.log(this.grandTotal);
+    // console.log(this.itemListArray[index]);
     // console.log(data);
   }
-  //!to delete items into the bill
-  deleteItem(){
+  //delte items into the dish
+  deleteItem(i,j){
+ this.itemListArray[i].splice(j,1)
+ console.log(this.itemListArray[i]);
+ this.grandTotal=0
+ this.itemListArray[i].forEach(element => {
+   this.grandTotal+=element.price * element.quantity
+  console.log(element.price * element.quantity);
+ });
+  }
+  //!to delete to the bill
+  deleteBill(index,id){
+    this.billingService.deleteBill(id).subscribe(info=>{
+      // console.log('itemDelete successfully');
+      let delBtn=document.getElementById('delete-close-'+index)
+      delBtn.click()
+      this.getAllBilling()
+    })
 
   }
-  updateForm(data,id){ //?data:<parameterlist> custName,date and address
+  updateForm(data,id,index){ //?data:<parameterlist> custName,date and address
     //set form data into bill object
     this.billing.customerName=data.custName;
     this.billing.date=data.date;
     this.billing.address=data.address;
     this.billing.grandTotal=data.grandTotal
-    this.billing.itemDetails=this.itemListArray[id]
-    this.billingService.editBill(this.billing,id+1).subscribe(info=>{
-      console.log('service is calling');
+    this.billing.itemDetails=this.itemListArray[index]
+    this.billingService.editBill(this.billing,id).subscribe(info=>{
+      // console.log('service is calling');
+      this.getAllBilling()
     })
-    let closebtn=document.getElementById('close-btn-'+id)
+    let closebtn=document.getElementById('close-btn-'+index)
     closebtn.click()
-    console.log(data);
+    // console.log(data);
   }
 }

@@ -27,7 +27,7 @@
     <!-- Symbol Column -->
     <ng-container matColumnDef="grandTotal">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Grand Total <i class="fas fa-database fa-2x "></i></th>
-        <td mat-cell *matCellDef="let element"> <i class="fas fa-rupee-sign"></i>{{element.grandTotal}} </td>
+        <td mat-cell *matCellDef="let element"> <i class="fas fa-rupee-sign"></i>{{element.grandTotal+ element.grandTotal*18/100}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
