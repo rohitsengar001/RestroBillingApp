@@ -8,14 +8,15 @@ import { ManageBillComponent } from './manage-bill/manage-bill.component';
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 const routes: Routes = [
-    {
-        path: '',
-        redirectTo: 'home', pathMatch: 'full'
-    },
-    {path: 'home', component: HomeComponent},
-    {path:'createbill',component:CreateBillComponent},
-    {path:'viewbill',component:ViewbillComponent},
-    {path:'manage-bill',component:ManageBillComponent}
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  { path: 'home', component: HomeComponent },
+  { path: 'createbill', component: CreateBillComponent },
+  { path: 'viewbill', component: ViewbillComponent },
+  { path: 'manage-bill', component: ManageBillComponent },
 ];
 
 @NgModule({
