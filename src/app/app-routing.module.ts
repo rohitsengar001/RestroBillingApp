@@ -4,15 +4,18 @@ import { BillingpdfComponent } from './modules/billing/billingpdf/billingpdf.com
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/layout/bill/home', pathMatch: 'full'},
-  {path: 'layout', loadChildren: () => import('./modules/layout/layout-routing.module').then(m => m.LayoutRoutingModule)},
-  {path:"billingpdf",component:BillingpdfComponent}
+  {path:'',redirectTo:'/account/login',pathMatch:'full'},
+  {path:'account',loadChildren:()=>import ('./modules/account/account.module').then(m=>m.AccountModule)}
+  // {path: '', redirectTo: '/layout/bill/home', pathMatch: 'full'},
+  // {path: 'layout', loadChildren: () => import('./modules/layout/layout-routing.module').then(m => m.LayoutRoutingModule)},
+  // {path:"billingpdf",component:BillingpdfComponent}
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[]
 })
 export class AppRoutingModule { }

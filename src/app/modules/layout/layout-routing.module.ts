@@ -8,7 +8,7 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: '/layout/bill/', pathMatch: 'full' },
+            { path: '', redirectTo: '/bill/home', pathMatch: 'full' },
             {
                 path: 'bill', loadChildren: () => import('../billing/billing.module').then(m => m.BillingModule)
             },
