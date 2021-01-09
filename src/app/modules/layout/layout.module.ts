@@ -6,12 +6,13 @@ import { BillingModule } from '../billing/billing.module';
 import { SidenavbarComponent } from './sidenavbar/sidenavbar.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout/layout.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidenavbarComponent, LayoutComponent],
+  declarations: [HeaderComponent, FooterComponent, SidenavbarComponent, LayoutComponent, PagenotfoundComponent],
   imports: [
     CommonModule,
     BillingModule,
