@@ -9,7 +9,7 @@ import { BillingService } from 'src/app/services/billing.service';
   styleUrls: ['./create-bill.component.css']
 })
 export class CreateBillComponent implements OnInit {
-  billReactiveForm: FormGroup;
+  public billReactiveForm: FormGroup;
   addItems = []; //?itemName:"",quantity:'',price:''
   dishes = ['MATAR PANEER', 'SAHI PANEER', 'VEG-VIRYANI', 'SAHI KABAB', 'MATAR KULCHA', 'BURGER CHEESE', 'VEG MAGGI', 'PANEER TIKKA', 'BUTTER NAAN'];
   bill = {

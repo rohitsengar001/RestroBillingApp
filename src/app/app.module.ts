@@ -11,6 +11,7 @@ import { LineBreakPipePipe } from './line-break-pipe.pipe';
 // import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreatBillGuard } from './guards/creat-bill.guard';
 // import { HomeComponent } from './modules/billing/home/home.component';
 
 @NgModule({
@@ -28,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule
     
   ],
-  providers: [BillingService],
+  providers: [BillingService,CreatBillGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
