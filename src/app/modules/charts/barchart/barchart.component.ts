@@ -26,7 +26,7 @@ export class BarchartComponent implements OnInit {
     //get all availabe bill
     this.billingservice.getAllBill().subscribe(info => {
       this.dataObj = info
-      console.log(this.dataObj);
+      // console.log(this.dataObj);
     })
     //determine last 7 days date
     for (let i = 0; i < 7; i++) {
@@ -43,16 +43,16 @@ export class BarchartComponent implements OnInit {
     }
     //datewise data store into objArray
 
-    console.log(this.weekDates)
+    // console.log(this.weekDates)
 
     //!check this data
     this.getttingWeeklyData()
     this.objArray.forEach((outer, index) => {
-      console.log(outer, "outerloop-", index);
+      // console.log(outer, "outerloop-", index);
       outer.forEach(inner => {
         // this.sumPrice = inner.grandTotol
         this.sumPrice = (this.sumPrice || 0) + (inner.grandTotol)
-        console.log(inner.grandTotal, "innerloop")
+        // console.log(inner.grandTotal, "innerloop")
       });
 
     });
@@ -97,7 +97,7 @@ export class BarchartComponent implements OnInit {
       this.billingservice.getbill(this.formatDate(wdate)).subscribe(info => {
         // const data = await info
         this.objArray.push(info)
-        console.log(info)
+        // console.log(info)
       })
       // console.log((wdate));
     })
@@ -109,7 +109,7 @@ export class BarchartComponent implements OnInit {
         outer.forEach((inner) => {
           inner.grandTotal
           this.sumPrice = (this.sumPrice || 0) + (inner.grandTotal)
-          console.log(this.sumPrice, "innerloop")
+          // console.log(this.sumPrice, "innerloop")
           this.flag = true
 
         });
@@ -123,14 +123,14 @@ export class BarchartComponent implements OnInit {
 
         }
       })
-      console.log(this.sumPrice)
+      // console.log(this.sumPrice)
     }, 1000)
   }
 
   showTotal() {
     setTimeout(() => {
-      console.log(this.sumPrice);
-      console.log(this.grandTotal);
+      // console.log(this.sumPrice);
+      // console.log(this.grandTotal);
     }, 1500);
   }
   //change date into format yyyy-mm-dd 

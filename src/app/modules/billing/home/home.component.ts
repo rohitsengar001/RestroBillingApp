@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BillingService } from 'src/app/services/billing.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  billObj
+  totalMonthlyRevenue:number=0
+  constructor(private billingservice:BillingService) { }
   ngOnInit(): void {
+    this.geetingRevenue()
+    setTimeout(() => {
+      this.billObj.forEach(element => {
+        this.totalMonthlyRevenue+=element.grandTotal+(element.grandTotal*18)/100
+      });
+      // console.log(this.totalMonthlyRevenue);
+    }, 500  );
+  }
+
+  async geetingRevenue(){
+    this.billingservice.getAllBill().subscribe(info=>{
+      this.billObj=info
+      // console.log(info);
+    })
+    
   }
 
 }
