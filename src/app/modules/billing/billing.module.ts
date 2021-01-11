@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ManageBillComponent } from './manage-bill/manage-bill.component';
+import { ChartsModule } from '../charts/charts.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ManageBillComponent } from './manage-bill/manage-bill.component';
     BillingRoutingModule,
     MatPaginatorModule,
     FormsModule,
+    ChartsModule
   ],
   exports:[HomeComponent]
 })

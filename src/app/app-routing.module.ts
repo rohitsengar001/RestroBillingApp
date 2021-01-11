@@ -7,6 +7,7 @@ import { PagenotfoundComponent } from './modules/layout/pagenotfound/pagenotfoun
 const routes: Routes = [
   {path:'',redirectTo:'/account/login',pathMatch:'full'},
   {path:'account',loadChildren:()=>import ('./modules/account/account.module').then(m=>m.AccountModule)},
+  {path:"billingpdf",component:BillingpdfComponent},
   {path:'**',component:PagenotfoundComponent}
 ];
 

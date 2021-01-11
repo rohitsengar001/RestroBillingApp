@@ -23,4 +23,7 @@ export class BillingService {
   deleteBill(dataId){
     return this.httpClient.delete(`${environment.baseUrl}/bill/`+dataId)
   }
+  getbill(keyid:string){
+    return this.httpClient.get(`${environment.baseUrl}/bill/?date=`+keyid)
+  }
 }

@@ -24,9 +24,14 @@
           "itemName": "MATAR PANEER",
           "quantity": 1,
           "price": 250
+        },
+        {
+          "itemName": "MATAR PANEER",
+          "price": 230,
+          "quantity": 1
         }
       ],
-      "grandTotal": 250,
+      "grandTotal": 480,
       "id": 1
     },
     {
@@ -73,6 +78,26 @@
       ],
       "grandTotal": 426,
       "id": 3
+    },
+    {
+      "customerName": "ramakant mishra",
+      "billNo": "",
+      "date": "2021-01-09",
+      "address": "kanpur",
+      "itemDetails": [
+        {
+          "itemName": "SAHI PANEER",
+          "quantity": 1,
+          "price": 345
+        },
+        {
+          "itemName": "VEG-VIRYANI",
+          "price": 45,
+          "quantity": 2
+        }
+      ],
+      "grandTotal": 435,
+      "id": 4
     }
   ],
   "profile": {
