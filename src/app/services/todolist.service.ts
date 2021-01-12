@@ -15,4 +15,11 @@ export class TodolistService {
     // console.log(data)
     return this.httpClient.post<any>(`${environment.baseUrl}/todo`, data)
   }
+  deleteTask(id){
+    return this.httpClient.delete(`${environment.baseUrl}/todo/`+id)
+  }
+  editTask(data,id){
+    console.log("update service",data);
+    return this.httpClient.put(`${environment.baseUrl}/todo/`+id, data)
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { TodolistService } from 'src/app/services/todolist.service';
 
 @Component({
@@ -6,20 +6,25 @@ import { TodolistService } from 'src/app/services/todolist.service';
   templateUrl: './todo-app.component.html',
   styleUrls: ['./todo-app.component.css']
 })
-export class TodoAppComponent implements OnInit {
+export class TodoAppComponent implements OnInit,OnDestroy,DoCheck {
 
-  taskArray = [];
-  todoData={
-    "alltask":this.taskArray,
-    "status":''
-  }
+  todoData
+  taskArray:any[];
   constructor(private todolistservice:TodolistService) { }
-
+  
   ngOnInit(): void {
-    // this.todolistservice.getAllTask().subscribe(info=>{
-    //   this.todoData=info;
+    this.getAlltask()
+  }
+ ngDoCheck(){
+  // this.getAlltask()
+
+ }
+  ngOnDestroy(): void {
+    // this.todolistservice.postTask(this.taskArray).subscribe(info=>{
+      console.log("ngOnDestroy");
     // })
   }
+  
   addTask(field) {
     let task = {
     content: "",
@@ -27,21 +32,51 @@ export class TodoAppComponent implements OnInit {
   };
     // console.log(field.value);
     task.content = field.value;
-    this.taskArray.push(task);
+    this.postTask(task)
+    // this.taskArray.push(task);
     field.value=""
+    this.getAlltask()
   }
-  removeTask(index){
+  removeTask(index,id){
     this.taskArray.splice(index,1)
+    this.removeTaskApi(id)
+    console.log("delete item",id);
+
   }
-  inlineThrough(index){
+  inlineThrough(index,id){
     if(this.taskArray[index].status==""){
 
     this.taskArray[index].status="strike"
+    
     }
     else{
     this.taskArray[index].status=""
       
     }
-  }
+    console.log("update",this.taskArray[index]);
+    this.updateTask(this.taskArray[index],id)
+    // this.getAlltask()
 
+  }
+  getAlltask(){
+    this.todolistservice.getAllTask().subscribe((info:any)=>{
+      this.taskArray=info
+    })
+  }
+  postTask(data){
+    this.todolistservice.postTask(data).subscribe(info=>{
+      this.taskArray.push(data)
+        console.log('task posted');
+    })
+  }
+  removeTaskApi(id){
+    this.todolistservice.deleteTask(id).subscribe(info=>{
+
+    })
+  }
+  updateTask(data,id){
+    this.todolistservice.editTask(data,id).subscribe(info=>{
+
+    })
+  }
 }

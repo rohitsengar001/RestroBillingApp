@@ -15,89 +15,106 @@
   ],
   "bill": [
     {
-      "customerName": "brajesh kumari",
+      "customerName": "rohit sengar",
       "billNo": "",
-      "date": "2021-01-08",
+      "date": "2021-01-12",
       "address": "kaurara road sirsaganj",
       "itemDetails": [
         {
-          "itemName": "MATAR PANEER",
+          "itemName": "SAHI KABAB",
           "quantity": 1,
-          "price": 250
-        },
-        {
-          "itemName": "MATAR PANEER",
-          "price": 230,
-          "quantity": 1
+          "price": 350
         }
       ],
-      "grandTotal": 480,
+      "grandTotal": 350,
       "id": 1
     },
     {
-      "customerName": "himanshu sharma",
+      "customerName": "naman gutpa",
       "billNo": "",
-      "date": "2021-01-08",
-      "address": "bijnor",
+      "date": "2021-01-11",
+      "address": "mirzapur",
       "itemDetails": [
         {
           "itemName": "SAHI PANEER",
           "quantity": 1,
-          "price": 250
+          "price": 240
         },
         {
-          "itemName": "VEG-VIRYANI",
+          "itemName": "MATAR KULCHA",
           "quantity": 2,
           "price": 45
         }
       ],
-      "grandTotal": 340,
+      "grandTotal": 330,
       "id": 2
     },
     {
-      "customerName": "bhanu sengar",
+      "customerName": "bhanu pratap sengar",
       "billNo": "",
-      "date": "2021-01-02",
-      "address": "kaurara road sirsaganj",
+      "date": "2021-01-07",
+      "address": "kaurara road",
       "itemDetails": [
         {
           "itemName": "SAHI PANEER",
           "quantity": 1,
-          "price": 237
+          "price": 240
         },
         {
-          "itemName": "BURGER CHEESE",
-          "quantity": 1,
-          "price": 99
-        },
-        {
-          "itemName": "VEG MAGGI",
+          "itemName": "VEG-VIRYANI",
           "quantity": 2,
           "price": 45
         }
       ],
-      "grandTotal": 426,
+      "grandTotal": 330,
       "id": 3
     },
     {
-      "customerName": "ramakant mishra",
+      "customerName": "rajesh khanna",
       "billNo": "",
-      "date": "2021-01-09",
-      "address": "kanpur",
+      "date": "2021-01-08",
+      "address": "mumbai",
       "itemDetails": [
+        {
+          "itemName": "BUTTER NAAN",
+          "quantity": 4,
+          "price": 15
+        },
         {
           "itemName": "SAHI PANEER",
           "quantity": 1,
-          "price": 345
-        },
-        {
-          "itemName": "VEG-VIRYANI",
-          "price": 45,
-          "quantity": 2
+          "price": 265
         }
       ],
-      "grandTotal": 435,
+      "grandTotal": 325,
       "id": 4
+    }
+  ],
+  "todo": [
+    {
+      "content": "sdasdsd",
+      "status": "",
+      "id": 1
+    },
+    {
+      "content": "rrohit",
+      "status": "",
+      "id": 2
+    },
+    {
+      "content": "dadadad",
+      "status": "",
+      "id": 3
+    },
+    {
+      "content": "wrwrwr",
+      "status": "",
+      "id": 4
+    },
+    {
+      "content": "ssdsddadad",
+      "status": "",
+      "id": 5
     }
   ],
   "profile": {
