@@ -12,6 +12,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ManageBillComponent } from './manage-bill/manage-bill.component';
 import { ChartsModule } from '../charts/charts.module';
+import { TodoModule } from '../todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ChartsModule } from '../charts/charts.module';
     BillingRoutingModule,
     MatPaginatorModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    TodoModule
   ],
   exports:[HomeComponent]
 })

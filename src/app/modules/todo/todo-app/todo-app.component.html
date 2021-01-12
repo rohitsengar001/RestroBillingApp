@@ -1,1 +1,34 @@
-<p>todo-app works!</p>
+<div class="container">
+
+	<div class="input-group mb-3">
+		<div class="input-group-prepend text-primary">
+			<span class="input-group-text ">Task</span>
+		</div>
+		<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+     name="task" #task ngModel
+    >
+		<div class="input-group-append">
+			<span class="input-group-text"><i class="fa fa-plus-square btn btn-primary" aria-hidden="true" (click)="addTask(task)"></i></span>
+		</div>
+	</div>
+	<div>
+		<ng-container *ngIf="this.taskArray.length>0">
+
+			<div class="card">
+				<div class="card-body">
+					<ng-container *ngFor="let td of taskArray;index as i">
+						<!-- card begin -->
+						<ul class="list-group">
+							<li class="list-group-item d-flex justify-content-between align-items-center">
+								<input type="checkbox" name="" (click)="inlineThrough(i)" >
+								<p [class]="td.status">{{td.content}}</p>
+								<span class="badge badge-danger badge-pill btn" (click)="removeTask(i)">Delete</span>
+							</li>
+						</ul>
+					</ng-container>
+					<!-- card end -->
+				</div>
+			</div>
+		</ng-container>
+	</div>
+</div>
