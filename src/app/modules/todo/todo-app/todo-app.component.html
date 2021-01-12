@@ -20,7 +20,7 @@
 						<!-- card begin -->
 						<ul class="list-group">
 							<li class="list-group-item d-flex justify-content-between align-items-center">
-								<input type="checkbox" name="" (click)="inlineThrough(i,td.id)" >
+								<input type="checkbox" name="" (click)="inlineThrough(i,td.id)" [checked]="td.status" >
 								<p [class]="td.status">{{td.content}}</p>
 								<span class="badge badge-danger badge-pill btn" (click)="removeTask(i,td.id)">Delete</span>
 							</li>

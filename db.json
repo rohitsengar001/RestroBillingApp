@@ -15,21 +15,6 @@
   ],
   "bill": [
     {
-      "customerName": "rohit sengar",
-      "billNo": "",
-      "date": "2021-01-12",
-      "address": "kaurara road sirsaganj",
-      "itemDetails": [
-        {
-          "itemName": "SAHI KABAB",
-          "quantity": 1,
-          "price": 350
-        }
-      ],
-      "grandTotal": 350,
-      "id": 1
-    },
-    {
       "customerName": "naman gutpa",
       "billNo": "",
       "date": "2021-01-11",
@@ -88,6 +73,36 @@
       ],
       "grandTotal": 325,
       "id": 4
+    },
+    {
+      "customerName": "akash gaur",
+      "billNo": "",
+      "date": "2021-01-09",
+      "address": "bulandshahr",
+      "itemDetails": [
+        {
+          "itemName": "MATAR KULCHA",
+          "quantity": 1,
+          "price": 45
+        }
+      ],
+      "grandTotal": 45,
+      "id": 5
+    },
+    {
+      "customerName": "rahul sengar",
+      "billNo": "",
+      "date": "2021-01-10",
+      "address": "kaurara road",
+      "itemDetails": [
+        {
+          "itemName": "VEG-VIRYANI",
+          "quantity": 2,
+          "price": 90
+        }
+      ],
+      "grandTotal": 180,
+      "id": 6
     }
   ],
   "todo": [
@@ -103,7 +118,7 @@
     },
     {
       "content": "dadadad",
-      "status": "",
+      "status": "strike",
       "id": 3
     },
     {
