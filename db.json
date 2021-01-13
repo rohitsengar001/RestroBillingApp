@@ -26,12 +26,12 @@
           "price": 240
         },
         {
-          "itemName": "MATAR KULCHA",
-          "quantity": 2,
-          "price": 45
+          "itemName": "VEG MAGGI",
+          "price": 345,
+          "quantity": 2
         }
       ],
-      "grandTotal": 330,
+      "grandTotal": 930,
       "id": 2
     },
     {
@@ -103,6 +103,26 @@
       ],
       "grandTotal": 180,
       "id": 6
+    },
+    {
+      "customerName": "naresh chandra ",
+      "billNo": "",
+      "date": "2021-01-13",
+      "address": "ghaziabad",
+      "itemDetails": [
+        {
+          "itemName": "MATAR PANEER",
+          "quantity": 2,
+          "price": 234
+        },
+        {
+          "itemName": "VEG MAGGI",
+          "quantity": 1,
+          "price": 90
+        }
+      ],
+      "grandTotal": 558,
+      "id": 7
     }
   ],
   "todo": [
@@ -112,14 +132,14 @@
       "id": 1
     },
     {
-      "content": "rrohit",
-      "status": "",
-      "id": 2
-    },
-    {
       "content": "dadadad",
       "status": "strike",
       "id": 3
+    },
+    {
+      "content": "asdadasdad",
+      "status": "",
+      "id": 4
     }
   ],
   "profile": {
