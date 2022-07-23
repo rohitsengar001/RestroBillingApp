@@ -9,7 +9,7 @@ export class LoginService {
   constructor(private router:Router) { }
   checkUser(data):boolean{
     console.log( typeof data.get('password').value);
-    if ((data.get('email').value=='rohitsengar001@gmail.com') && (data.get('password').value=='rohit@321') ) {
+    if ((data.get('email').value=='test@gmail.com') && (data.get('password').value=='test@321') ) {
       return true
     }
     else{
