@@ -10,20 +10,20 @@ export class BillingService {
   constructor(private httpClient: HttpClient) { }
   //api calling to the fake server 
   getAllBill() {
-    return this.httpClient.get(`${environment.baseUrl}/bill`)
+    return this.httpClient.get(`${environment.baseUrl}`)
   }
   postBill(data) {
     // console.log(data)
-    return this.httpClient.post<any>(`${environment.baseUrl}/bill`, data)
+    return this.httpClient.post<any>(`${environment.baseUrl}`, data)
   }
   editBill(data,id) {
     console.log(id);
-    return this.httpClient.put(`${environment.baseUrl}/bill/`+id, data)
+    return this.httpClient.put(`${environment.baseUrl}/`+id, data)
   }
   deleteBill(dataId){
-    return this.httpClient.delete(`${environment.baseUrl}/bill/`+dataId)
+    return this.httpClient.delete(`${environment.baseUrl}/`+dataId)
   }
   getbill(keyid:string){
-    return this.httpClient.get(`${environment.baseUrl}/bill/?date=`+keyid)
+    return this.httpClient.get(`${environment.baseUrl}/?date=`+keyid)
   }
 }
