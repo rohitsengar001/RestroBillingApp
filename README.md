@@ -1,4 +1,5 @@
 # RestaurantBillingApp
+ `Testing URL` : [clickhere](https://restro-billing-ip1mfaumc-rohitsengar001.vercel.app)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
 
