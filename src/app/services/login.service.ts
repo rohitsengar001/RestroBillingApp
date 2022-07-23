@@ -9,7 +9,7 @@ export class LoginService {
 
   constructor(private router:Router) { }
   checkUser(form):boolean{
-    if(form.get('email').value=='rohitsengar001@gmail.com' && form.get('password').value=='rohit@321')
+    if(form.get('email').value=='test001@gmail.com' && form.get('password').value=='test@321')
     {
       localStorage.setItem("username","rohitsengar001@gmail.com")
       return true
