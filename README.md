@@ -2,7 +2,7 @@
 
 > `Testing URL` : [clickhere](https://restro-billing-ip1mfaumc-rohitsengar001.vercel.app)
 >> Login Credential For Testing Purpose :
->>> email : test001@gmail.com   ***password*** : test@321
+>> email : ``test001@gmail.com``   ***password*** :  ``test@321``
  
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.7.
